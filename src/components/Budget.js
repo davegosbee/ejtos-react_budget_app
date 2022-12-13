@@ -19,7 +19,7 @@ const Budget = () => {
 						required='required'
 						type='number'
 						id='budget'
-						defaultvalue={budget}
+						value={budget}
                         step='10'
                         size = '6'
                         style={{ marginLeft: '2rem' , size: 6}}
