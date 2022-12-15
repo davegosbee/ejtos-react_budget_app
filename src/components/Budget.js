@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { AppContext } from '../context/AppContext';
 
 const Budget = () => {
-	const { budget, dispatch  } = useContext(AppContext);
+	const { currency,budget, dispatch  } = useContext(AppContext);
     
 
     const handleSetBudget = (event) => {
@@ -16,7 +16,7 @@ const Budget = () => {
 		      
 		<div className="alert alert-primary input-group" >
             <div className="input-group-prepend">
-            <span class="input-group-text" >Budget: £</span> 
+            <span class="input-group-text" >Budget: {currency}</span> 
             </div>
             <input class="form-control"
 						required='required'

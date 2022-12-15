@@ -62,7 +62,14 @@ export const AppReducer = (state, action) => {
             if (action.payload > state.maxBudget)
             {
                 alert("Cannot increase the budget to greater than " + state.maxBudget);
-            } 
+            }
+            else if (action.payload < state.expenses.reduce(
+				(previousExp, currentExp) => {
+					return previousExp + currentExp.cost
+				},0
+			) ) {
+                alert("You cannot reduce the budget lower than the spending");
+            }
             else {
 			    state.budget = action.payload;
             }
