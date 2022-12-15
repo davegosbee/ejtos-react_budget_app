@@ -1,4 +1,6 @@
 import React from 'react';
+import "@popperjs/core"; 
+import "bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { AppProvider } from './context/AppContext';
@@ -8,7 +10,7 @@ import ExpenseList from './components/ExpenseList';
 import AllocationForm from './components/AllocationForm';
 import RemainingBudget from './components/Remaining';
 import Currency from './components/Currency';
-const App = () => {
+const App = () => { 
 	return (
 		<AppProvider>
 			<div className='container'>

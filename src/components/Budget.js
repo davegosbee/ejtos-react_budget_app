@@ -16,9 +16,9 @@ const Budget = () => {
 		      
 		<div className="alert alert-primary input-group" >
             <div className="input-group-prepend">
-            <span class="input-group-text" >Budget: {currency}</span> 
+            <span className="input-group-text" >Budget: {currency}</span> 
             </div>
-            <input class="form-control"
+            <input className="form-control"
 						required='required'
 						type='number'
 						id='budget'

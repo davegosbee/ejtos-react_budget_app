@@ -100,7 +100,13 @@ const initialState = {
 		{ id: "Human Resource", name: 'Human Resource', cost: 40 },
 		{ id: "IT", name: 'IT', cost: 500 },
 	],
-	currency: '£'
+	currency: '£',
+    currencies : [
+        {symbol: '£', description: 'Pound'},
+        {symbol: '$', description: 'Dollar'},
+        {symbol: '€', description: 'Euro'},
+        {symbol: '₹', description: 'Rupee'},
+    ]
 };
 
 // 2. Creates the context this is the thing our components import and use to get the state
@@ -125,10 +131,11 @@ export const AppProvider = (props) => {
 			value={{
 				expenses: state.expenses,
 				budget: state.budget,
-                maxBudget: PopStateEvent.maxBudget,
+                maxBudget: state.maxBudget,
 				remaining: remaining,
 				dispatch,
-				currency: state.currency
+				currency: state.currency,
+                currencies: state.currencies
 			}}
 		>
 			{props.children}

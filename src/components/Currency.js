@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { AppContext } from '../context/AppContext';
 
 const Currency = () => {
-	const { currency, dispatch  } = useContext(AppContext);
+	const { currency,currencies, dispatch  } = useContext(AppContext);
     
 
     const handleSetCurrency = (event) => {
@@ -12,23 +12,33 @@ const Currency = () => {
 		});
 	};
 
+    const handleSetCurrency2 = (val) => {
+		dispatch({
+			type: 'CHG_CURRENCY',
+			payload: val,
+		});
+	};
+
+    let currencyDesc = currencies.find(c => c.symbol === currency).description
+
 	return (
-		      
-		<div className="alert alert-primary input-group" >
-            <div className="input-group-prepend">
-            <span class="input-group-text" >Currency:</span> 
-            </div>
-            <select value={currency} className="custom-select" id="inputGroupSelect01" onChange={handleSetCurrency}>
-		
-						<option value="£" name="pound">£ Pound</option>
-                        <option value="$" name="dollar">$ Dollar</option>
-                        <option value="€" name="euro">€ Euro</option>
-                        <option value="₹" name="rupee">₹ Rupee</option>
-                        
-			</select>
-			
-		</div>
-       
+		<>
+        
+        <div className="dropdown">
+        <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+        Currency ({currency} {currencyDesc})
+        
+        </button>
+        <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            {
+            currencies.map((c) => (
+                <li key={c.symbol}><a className="dropdown-item" href="#" onClick={() => handleSetCurrency2(c.symbol)}>{c.symbol} {c.description}</a></li>
+
+            ))}
+          
+        </ul>
+        </div>
+       </>
 	);
 };
 
