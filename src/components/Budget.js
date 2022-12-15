@@ -13,21 +13,24 @@ const Budget = () => {
 	};
 
 	return (
-		<div className='form-group alert alert-secondary'>
-            <label for='budget' >Budget: £</label> 
-            <input
+		      
+		<div className="alert alert-primary input-group" >
+            <div className="input-group-prepend">
+            <span class="input-group-text" >Budget: £</span> 
+            </div>
+            <input class="form-control"
 						required='required'
 						type='number'
 						id='budget'
 						value={budget}
                         step='10'
                         size = '6'
-                        style={{ marginLeft: '2rem' , size: 6}}
 						onChange={handleSetBudget}
                         >
 						</input>
 			
 		</div>
+       
 	);
 };
 
